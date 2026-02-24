@@ -335,7 +335,10 @@ submitBtn.addEventListener('click', async () => {
     try {
         const response = await fetch(`${API_BASE}/api/fortune`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('auth_token') || '',
+            },
             body: JSON.stringify({ fortuneData, dynamicApiKey: apiKey }),
         });
 

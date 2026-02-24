@@ -296,7 +296,10 @@ async function processUserMessage(text) {
     try {
         const response = await fetch(`${API_BASE}/api/chat`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem('auth_token') || '',
+            },
             body: JSON.stringify({
                 message: text,
                 history: conversationHistory.slice(-20), // Last 20 messages for context
