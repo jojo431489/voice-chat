@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情姻緣測算</title>
+    <meta name="description" content="透過八字命理、紫微斗數、易經卦象，分析兩人姻緣配對與感情走向。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="fortune.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Decorative elements -->
+        <div class="lantern left"></div>
+        <div class="lantern right"></div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-decoration">✦</div>
+            <h1>情 姻 緣</h1>
+            <p class="subtitle">八字 · 紫微斗數 · 易經 · 姓名學</p>
+            <div class="header-decoration">✦</div>
+        </header>
+
+        <!-- Input Form -->
+        <section class="form-section" id="formSection">
+            <div class="couple-form">
+                <!-- Person A -->
+                <div class="person-card" id="personA">
+                    <div class="person-label">
+                        <span class="person-icon">♥</span>
+                        <span>緣主 — 甲方</span>
+                    </div>
+                    <div class="field">
+                        <label for="nameA">姓名</label>
+                        <input type="text" id="nameA" placeholder="請輸入姓名" maxlength="10" required>
+                    </div>
+                    <div class="field">
+                        <label for="birthdayA">出生日期</label>
+                        <input type="date" id="birthdayA" required>
+                    </div>
+                    <div class="field">
+                        <label for="timeA">出生時辰</label>
+                        <select id="timeA" required>
+                            <option value="">請選擇時辰</option>
+                            <option value="0">子時（23:00-01:00）</option>
+                            <option value="1">丑時（01:00-03:00）</option>
+                            <option value="2">寅時（03:00-05:00）</option>
+                            <option value="3">卯時（05:00-07:00）</option>
+                            <option value="4">辰時（07:00-09:00）</option>
+                            <option value="5">巳時（09:00-11:00）</option>
+                            <option value="6">午時（11:00-13:00）</option>
+                            <option value="7">未時（13:00-15:00）</option>
+                            <option value="8">申時（15:00-17:00）</option>
+                            <option value="9">酉時（17:00-19:00）</option>
+                            <option value="10">戌時（19:00-21:00）</option>
+                            <option value="11">亥時（21:00-23:00）</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="genderA">性別</label>
+                        <div class="gender-toggle">
+                            <button type="button" class="gender-btn active" data-gender="male" data-person="A">♂
+                                男</button>
+                            <button type="button" class="gender-btn" data-gender="female" data-person="A">♀ 女</button>
+                        </div>
+                        <input type="hidden" id="genderA" value="male">
+                    </div>
+                </div>
+
+                <!-- Love connector -->
+                <div class="connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-heart">❤</div>
+                    <div class="connector-line"></div>
+                </div>
+
+                <!-- Person B -->
+                <div class="person-card" id="personB">
+                    <div class="person-label">
+                        <span class="person-icon">♥</span>
+                        <span>緣主 — 乙方</span>
+                    </div>
+                    <div class="field">
+                        <label for="nameB">姓名</label>
+                        <input type="text" id="nameB" placeholder="請輸入姓名" maxlength="10" required>
+                    </div>
+                    <div class="field">
+                        <label for="birthdayB">出生日期</label>
+                        <input type="date" id="birthdayB" required>
+                    </div>
+                    <div class="field">
+                        <label for="timeB">出生時辰</label>
+                        <select id="timeB" required>
+                            <option value="">請選擇時辰</option>
+                            <option value="0">子時（23:00-01:00）</option>
+                            <option value="1">丑時（01:00-03:00）</option>
+                            <option value="2">寅時（03:00-05:00）</option>
+                            <option value="3">卯時（05:00-07:00）</option>
+                            <option value="4">辰時（07:00-09:00）</option>
+                            <option value="5">巳時（09:00-11:00）</option>
+                            <option value="6">午時（11:00-13:00）</option>
+                            <option value="7">未時（13:00-15:00）</option>
+                            <option value="8">申時（15:00-17:00）</option>
+                            <option value="9">酉時（17:00-19:00）</option>
+                            <option value="10">戌時（19:00-21:00）</option>
+                            <option value="11">亥時（21:00-23:00）</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="genderB">性別</label>
+                        <div class="gender-toggle">
+                            <button type="button" class="gender-btn" data-gender="male" data-person="B">♂ 男</button>
+                            <button type="button" class="gender-btn active" data-gender="female" data-person="B">♀
+                                女</button>
+                        </div>
+                        <input type="hidden" id="genderB" value="female">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disconnected option -->
+            <div class="disconnect-option">
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="isDisconnected">
+                    <span class="checkmark"></span>
+                    <span class="checkbox-text">目前已斷聯，想知道是否還有回頭的機會</span>
+                </label>
+            </div>
+
+            <!-- Submit -->
+            <button class="submit-btn" id="submitBtn">
+                <span class="btn-text">開始測算姻緣</span>
+                <span class="btn-loading hidden" id="btnLoading">
+                    <span class="spinner"></span>
+                    測算中...
+                </span>
+            </button>
+
+            <!-- API Key notice -->
+            <div class="api-notice" id="apiNotice">
+                <p>需要 Google AI API Key · <a href="https://aistudio.google.com" target="_blank">免費取得</a></p>
+                <div class="api-key-inline">
+                    <input type="password" id="apiKeyInput" placeholder="貼上 API Key...">
+                    <button id="saveKeyBtn">儲存</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section hidden" id="resultsSection">
+            <!-- Summary cards -->
+            <div class="result-header">
+                <h2 id="coupleNames">— ❤ —</h2>
+                <div class="score-circle" id="scoreCircle">
+                    <svg viewBox="0 0 120 120">
+                        <circle class="score-bg" cx="60" cy="60" r="52" />
+                        <circle class="score-fill" cx="60" cy="60" r="52" id="scorePath" />
+                    </svg>
+                    <div class="score-text">
+                        <span class="score-number" id="scoreNumber">0</span>
+                        <span class="score-label">姻緣指數</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info cards row -->
+            <div class="info-cards" id="infoCards">
+                <!-- Filled by JS -->
+            </div>
+
+            <!-- Detailed Analysis -->
+            <div class="analysis-card" id="analysisCard">
+                <div class="analysis-header">
+                    <h3>✦ 姻緣詳批 ✦</h3>
+                    <button class="speak-btn" id="speakBtn" title="語音朗讀">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="analysis-body" id="analysisBody">
+                    <!-- Filled by Gemini -->
+                </div>
+            </div>
+
+            <!-- Reconnect section (shown only if disconnected) -->
+            <div class="reconnect-card hidden" id="reconnectCard">
+                <h3>🔮 斷聯後的機會</h3>
+                <div class="reconnect-body" id="reconnectBody"></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="result-actions">
+                <button class="action-btn" id="backBtn">重新測算</button>
+                <button class="action-btn primary" id="speakAllBtn">🔊 語音朗讀全文</button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>僅供娛樂參考 · <a href="/">返回語音對話</a></p>
+        </footer>
+    </div>
+
+    <script src="fortune.js"></script>
+</body>
+
+</html>
